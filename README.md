@@ -1,0 +1,1 @@
+Plugin redet-as-0001 para el tema Houzez de Wordpress
