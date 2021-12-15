@@ -53,8 +53,8 @@ class Redet_As_0001_Public {
 		$this->version = $version;
 		add_action( 'wp_ajax_houzez_crm_add_lead_redet_as', array( $this, 'add_lead_redet_as' ));
 		add_action( 'wp_ajax_houzez_delete_lead_redet_as', array( $this, 'delete_lead_redet_as') );
-		add_action( 'houzez_after_property_submit', array( $this, 'prueba_update_post_meta') );
-		add_action( 'houzez_after_property_update', array( $this, 'prueba_update_post_meta') );
+		add_action( 'houzez_after_property_submit', array( $this, 'meta_cedula_catastral') );
+		add_action( 'houzez_after_property_update', array( $this, 'meta_cedula_catastral') );
 	}
 
 	/**
@@ -1197,11 +1197,29 @@ class Redet_As_0001_Public {
 		}
 		return;
 	}
-	public function prueba_update_post_meta($idPropiedad = null)
+	public function meta_cedula_catastral($idPropiedad = null)
 	{
+		global $wpdb;
+
+		$cedulaCatastral = sanitize_text_field($_POST['prop_cedula_catastral_ra']);
+
+		$metaCatastral = $wpdb->get_results( "SELECT post_id FROM $wpdb->postmeta WHERE meta_key = 'fave_property_cedula_catastral_ra' AND meta_value = '$cedulaCatastral'", ARRAY_A );
+
+		if ($metaCatastral):
+			foreach ($metaCatastral as $meta):
+				$idPost = $meta['post_id'];
+				update_post_meta(1, 'idPost_catastral_duplicado_' . $idPost, $idPost);
+				$postCatastral = $wpdb->get_results("SELECT post_author FROM $wpdb->posts WHERE ID = ' $idPost'", ARRAY_A);
+				foreach ($postCatastral as $postCat):
+					$idAuthor = $postCat['post_author'];
+					update_post_meta(1, 'idAuthor_catastral_duplicado_' . $idPost . '-' . $idAuthor , $idAuthor);
+				endforeach;
+			endforeach;
+		endif;
+
 		if( isset( $_POST['prop_cedula_catastral_ra'] ) ) 
 		{
-			update_post_meta( $idPropiedad, 'fave_property_cedula_catastral_ra', sanitize_text_field( $_POST['prop_cedula_catastral_ra'] ) );
+			update_post_meta( $idPropiedad, 'fave_property_cedula_catastral_ra', $cedulaCatastral);
 		}
 	}
 }
