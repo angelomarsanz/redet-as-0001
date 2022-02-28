@@ -77,423 +77,6 @@
 		});
 	}
 
-	var formularios_garantias = [];
-
-	// Modelo
-
-	formularios_garantias['Modelo'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',
-			'porto_seguro_requisitos_trabajador_dependiente',
-			'porto_seguro_requisitos_jubilado_pensionista',
-			'porto_seguro_requisitos_trabajador_y_profesional_independiente',
-			'porto_seguro_requisitos_empresario',
-			'sura_requisitos_trabajador_y_profesional_independiente',
-			'sura_requisitos_empresario',
-			'garantia_estatal_informacion',
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'adjunto_sueldos',
-			'adjunto_caja',
-			'adjunto_ingresos',
-			'adjunto_declaracion_dgi',
-			'adjunto_bps',
-			'adjunto_certificado_dgi',
-			'adjunto_cippu',
-			'adjunto_rut',
-			'adjunto_social',
-			'adjunto_domicilio',
-			'adjunto_recibo_sueldo'
-		];
-
-	// Porto Seguro
-
-	formularios_garantias['Porto Seguro Trabajador dependiente'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'porto_seguro_requisitos_trabajador_dependiente',
-			'adjunto_sueldos'
-		];
-
-	formularios_garantias['Porto Seguro Jubilado pensionista'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',	
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'porto_seguro_requisitos_jubilado_pensionista',
-			'adjunto_caja'
-		];
-
-	formularios_garantias['Porto Seguro Trabajador y profesional independiente'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',
-			'porto_seguro_requisitos_trabajador_y_profesional_independiente',
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'adjunto_ingresos',
-			'adjunto_declaracion_dgi',
-			'adjunto_bps',
-			'adjunto_certificado_dgi',
-			'adjunto_rut',
-			'adjunto_social'
-		];
-		
-	formularios_garantias['Porto Seguro Empresario'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',
-			'porto_seguro_requisitos_empresario',
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'adjunto_ingresos',
-			'adjunto_declaracion_dgi',
-			'adjunto_bps',
-			'adjunto_certificado_dgi'
-		];
-
-	// SURA
-
-	formularios_garantias['SURA Trabajador dependiente'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'adjunto_recibo_sueldo'
-		];
-
-	formularios_garantias['SURA Jubilado pensionista'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',	
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'adjunto_caja'
-		];
-
-	formularios_garantias['SURA Trabajador y profesional independiente'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',
-			'sura_requisitos_trabajador_y_profesional_independiente',
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'adjunto_ingresos',
-			'adjunto_declaracion_dgi',
-			'adjunto_bps',
-			'adjunto_certificado_dgi',
-			'adjunto_cippu',
-			'adjunto_rut',
-			'adjunto_social'
-		];
-		
-	formularios_garantias['SURA Empresario'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',
-			'sura_requisitos_empresario',
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'adjunto_ingresos',
-			'adjunto_bps',
-			'adjunto_certificado_dgi'
-		];
-
-	// Anda
-
-	formularios_garantias['Anda Trabajador dependiente'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario'
-		];
-
-	formularios_garantias['Anda Jubilado pensionista'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',	
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario'
-		];
-
-	formularios_garantias['Anda Trabajador y profesional independiente'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario'
-		];
-		
-	formularios_garantias['Anda Empresario'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario'
-		];
-
-	// Garantía Estatal
-
-	formularios_garantias['Garantía Estatal Trabajador dependiente'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'garantia_estatal_informacion'
-		];
-
-	formularios_garantias['Garantía Estatal Jubilado pensionista'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',	
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'garantia_estatal_informacion'
-		];
-
-	formularios_garantias['Garantía Estatal Trabajador y profesional independiente'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'garantia_estatal_informacion'
-		];
-		
-	formularios_garantias['Garantía Estatal Empresario'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'garantia_estatal_informacion'
-		];
-
-	// BHU
-
-	formularios_garantias['BHU Trabajador dependiente'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'adjunto_domicilio',
-			'adjunto_recibo_sueldo'
-		];
-
-	formularios_garantias['BHU Jubilado pensionista'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',	
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'adjunto_domicilio'
-		];
-
-	formularios_garantias['BHU Trabajador y profesional independiente'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'adjunto_ingresos',
-			'adjunto_domicilio'
-		];
-		
-	formularios_garantias['BHU Empresario'] = 
-		[
-			'fecha_garantia',
-			'ubicacion_inmueble',
-			'nombre_cliente',
-			'nombre_propietario',
-			'propiedad_id',
-			'seguro',
-			'estado_laboral',
-			'email_cliente',
-			'email_propietario',
-			'adjunto_cedula_cliente',
-			'adjunto_cedula_propietario',
-			'adjunto_ingresos',
-			'adjunto_domicilio'
-		];
-
-	function mostrar_campos_formulario ()
-	{
-		if (formularios_garantias[$('#seguro').val()+' '+$('#estado_laboral').val()])
-		{		
-			var campos_a_mostrar = formularios_garantias[$('#seguro').val()+' '+$('#estado_laboral').val()];
-
-			console.log('Si existe el índice ');
-			console.log(campos_a_mostrar);
-
-			$("#formulario_edit .campo_formulario ").each(function (index) 
-			{
-				if ($(this).hasClass('nover') == false)
-				{
-					$(this).addClass('nover');
-				}
-			});
-
-			campos_a_mostrar.forEach(function(elemento, indice, array) 
-			{
-				$('.'+elemento).removeClass('nover');
-			});
-	
-		}
-		else
-		{
-			console.log('No existe el índice '+$('#seguro').val()+' '+$('#estado_laboral').val());
-		}
-	}
-	
     $(document).ready(function () {
 
     /*--------------------------------------------------------------------------
@@ -863,13 +446,10 @@
 					$('#propiedad_id').val(res.propiedad_id);
 					$('#seguro').val(res.seguro);
 					$('#estado_laboral').val(res.estado_laboral);
-					$('#email_cliente').val(res.email_cliente);
-					$('#email_propietario').val(res.email_propietario);
-					$('#comentarios_agente').val(res.comentarios_agente);
-					$('#comentarios_administrador').val(res.comentarios_administrador);
 					$('#user_id').val(res.user_id);
 					$('#estatus_garantia').val(res.estatus_garantia);
 					$('#tipo_formulario').val('Editar');
+					$('#comentarios_administrador').val(res.comentarios_administrador);
 					
 					var fila_adjunto = '';
 					var descripcion_anterior = '';
@@ -906,8 +486,6 @@
 					{					
 						document.getElementById( 'tbody_'+descripcion_anterior ).innerHTML = fila_adjunto;
 					}
-
-					mostrar_campos_formulario();
 					
 					propertyAttachmentEvents_ra();
 					
@@ -1096,13 +674,10 @@
 					$('#propiedad_id').val(res.propiedad_id);
 					$('#seguro').val(res.seguro);
 					$('#estado_laboral').val(res.estado_laboral);
-					$('#email_cliente').val(res.email_cliente);
-					$('#email_propietario').val(res.email_propietario);
-					$('#comentarios_agente').val(res.comentarios_agente);
-					$('#comentarios_administrador').val(res.comentarios_administrador);
 					$('#user_id').val(res.user_id);
 					$('#estatus_garantia').val("Aprobado");
 					$('#tipo_formulario').val('Aprobar');
+					$('#comentarios_administrador').val(res.comentarios_administrador);
 					
 					var fila_adjunto = '';
 					var descripcion_anterior = '';
@@ -1159,15 +734,15 @@
 	});
 
     /*-------------------------------------------------------------------
-    * Enviar informe
+    * Aprobar informe
     *------------------------------------------------------------------*/
-	$('.enviar_informe_js').on('click', function(e) {
+	$('.aprobar_informe_js').on('click', function(e) {
 		e.preventDefault();
 	
 		var $form = $('#informe-form');
 		var informe_id = $(this).data('id');
 
-		$('#titulo_formulario_informe').html('Enviar informe');
+		$('#titulo_formulario_informe').html('Aprobar informe');
 
 		$.ajax({
 			type: 'post',
@@ -1245,8 +820,8 @@
 
 					$('#comentarios_agente').val(res.comentarios_agente);
 					$('#comentarios_administrador').val(res.comentarios_administrador);
-					$('#estatus_informe').val('Enviado');
-					$('#tipo_formulario').val('Enviar');
+					$('#estatus_informe').val('Aprobado');
+					$('#tipo_formulario').val('Aprobar');
 					
 					var fila_adjunto = '';
 					var descripcion_anterior = '';
@@ -1335,13 +910,10 @@
 					$('#propiedad_id').val(res.propiedad_id);
 					$('#seguro').val(res.seguro);
 					$('#estado_laboral').val(res.estado_laboral);
-					$('#email_cliente').val(res.email_cliente);
-					$('#email_propietario').val(res.email_propietario);
-					$('#comentarios_agente').val(res.comentarios_agente);
-					$('#comentarios_administrador').val(res.comentarios_administrador);
 					$('#user_id').val(res.user_id);
 					$('#estatus_garantia').val("Rechazado");
 					$('#tipo_formulario').val('Rechazar');
+					$('#comentarios_administrador').val(res.comentarios_administrador);
 					
 					var fila_adjunto = '';
 					var descripcion_anterior = '';
@@ -1576,13 +1148,10 @@
 					$('#propiedad_id').val(res.propiedad_id);
 					$('#seguro').val(res.seguro);
 					$('#estado_laboral').val(res.estado_laboral);
-					$('#email_cliente').val(res.email_cliente);
-					$('#email_propietario').val(res.email_propietario);
-					$('#comentarios_agente').val(res.comentarios_agente);
-					$('#comentarios_administrador').val(res.comentarios_administrador);
 					$('#user_id').val(res.user_id);
 					$('#estatus_garantia').val("Reenviado");
 					$('#tipo_formulario').val('Reenviar');
+					$('#comentarios_administrador').val(res.comentarios_administrador);
 					
 					var fila_adjunto = '';
 					var descripcion_anterior = '';
@@ -2087,9 +1656,8 @@
 		});
 
 	}
-	houzez_property_attachments_ra('adjunto_cedula_cliente', 'select_adjunto_cedula_cliente_ra', 'tbody_adjunto_cedula_cliente', 'jpg,jpeg,png,pdf,zip', 'adjunto_cedula_cliente_ids[]', 'garantia');
-	houzez_property_attachments_ra('adjunto_cedula_propietario', 'select_adjunto_cedula_propietario_ra', 'tbody_adjunto_cedula_propietario', 'jpg,jpeg,png,pdf,zip', 'adjunto_cedula_propietario_ids[]', 'garantia');
 	houzez_property_attachments_ra('adjunto_sueldos', 'select_adjunto_sueldos_ra', 'tbody_adjunto_sueldos', 'jpg,jpeg,png,pdf,zip', 'adjunto_sueldos_ids[]', 'garantia');
+	houzez_property_attachments_ra('adjunto_cedula', 'select_adjunto_cedula_ra', 'tbody_adjunto_cedula', 'jpg,jpeg,png,pdf,zip', 'adjunto_cedula_ids[]', 'garantia');
 	houzez_property_attachments_ra('adjunto_caja', 'select_adjunto_caja_ra', 'tbody_adjunto_caja', 'jpg,jpeg,png,pdf,zip', 'adjunto_caja_ids[]', 'garantia');
 	houzez_property_attachments_ra('adjunto_ingresos', 'select_adjunto_ingresos_ra', 'tbody_adjunto_ingresos', 'jpg,jpeg,png,pdf,zip', 'adjunto_ingresos_ids[]', 'garantia');
 	houzez_property_attachments_ra('adjunto_declaracion_dgi', 'select_adjunto_declaracion_dgi_ra', 'tbody_adjunto_declaracion_dgi', 'jpg,jpeg,png,pdf,zip', 'adjunto_declaracion_dgi_ids[]', 'garantia');
@@ -2235,15 +1803,492 @@
 	$('#seguro').change(function(e) 
 	{
 		e.preventDefault();
+		if ($('#seguro').val() == 'Porto Seguro' && $('#estado_laboral').val() == 'Trabajador dependiente')
+		{
+			if ($(".porto_seguro_requisitos_trabajador_dependiente").hasClass('nover') == true)
+			{
+				$(".porto_seguro_requisitos_trabajador_dependiente").removeClass('nover');
+			}
+			if ($(".adjunto_sueldos").hasClass('nover') == true)
+			{
+				$(".adjunto_sueldos").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($(".porto_seguro_requisitos_trabajador_dependiente").hasClass('nover') == false)
+			{
+				$('.porto_seguro_requisitos_trabajador_dependiente').addClass('nover');
+			}
+			if ($(".adjunto_sueldos").hasClass('nover') == false)
+			{
+				$('.adjunto_sueldos').addClass('nover');
+			}	
+	
+		}
 
-		mostrar_campos_formulario();
+		if ($('#seguro').val() == 'Porto Seguro' && $('#estado_laboral').val() == 'Jubilado pensionista')
+		{
+			if ($(".porto_seguro_requisitos_jubilado_pensionista").hasClass('nover') == true)
+			{
+				$(".porto_seguro_requisitos_jubilado_pensionista").removeClass('nover');
+			}
+			if ($(".adjunto_caja").hasClass('nover') == true)
+			{
+				$(".adjunto_caja").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($(".porto_seguro_requisitos_jubilado_pensionista").hasClass('nover') == false)
+			{
+				$('.porto_seguro_requisitos_jubilado_pensionista').addClass('nover');
+			}
+			if ($('#seguro').val() != 'SURA')
+			{ 
+				if ($(".adjunto_caja").hasClass('nover') == false)
+				{
+					$('.adjunto_caja').addClass('nover');
+				}
+			}		
+		}
+
+		if ($('#seguro').val() == 'Porto Seguro' && $('#estado_laboral').val() == 'Trabajador y profesional independiente')
+		{
+			if ($(".porto_seguro_requisitos_trabajador_y_profesional_independiente").hasClass('nover') == true)
+			{
+				$(".porto_seguro_requisitos_trabajador_y_profesional_independiente").removeClass('nover');
+			}
+			if ($(".adjunto_ingresos").hasClass('nover') == true)
+			{
+				$(".adjunto_ingresos").removeClass('nover');
+			}
+			if ($(".adjunto_declaracion_dgi").hasClass('nover') == true)
+			{
+				$(".adjunto_declaracion_dgi").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($(".porto_seguro_requisitos_trabajador_y_profesional_independiente").hasClass('nover') == false)
+			{
+				$('.porto_seguro_requisitos_trabajador_y_profesional_independiente').addClass('nover');
+			}
+			if ($('#seguro').val() != 'SURA' && $('#seguro').val() != 'BHU' && $('#estado_laboral').val() != 'Empresario')
+			{ 
+				if ($(".adjunto_ingresos").hasClass('nover') == false)
+				{
+					$('.adjunto_ingresos').addClass('nover');
+				}
+			}
+			if ($('#seguro').val() != 'SURA' && $('#estado_laboral').val() != 'Empresario')
+			{ 
+				if ($(".adjunto_declaracion_dgi").hasClass('nover') == false)
+				{
+					$('.adjunto_declaracion_dgi').addClass('nover');
+				}
+			}		
+		}
+
+		if ($('#seguro').val() == 'Porto Seguro' && $('#estado_laboral').val() == 'Empresario')
+		{
+			if ($(".porto_seguro_requisitos_empresario").hasClass('nover') == true)
+			{
+				$(".porto_seguro_requisitos_empresario").removeClass('nover');
+			}
+			if ($(".adjunto_ingresos").hasClass('nover') == true)
+			{
+				$(".adjunto_ingresos").removeClass('nover');
+			}
+			if ($(".adjunto_declaracion_dgi").hasClass('nover') == true)
+			{
+				$(".adjunto_declaracion_dgi").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($(".porto_seguro_requisitos_empresario").hasClass('nover') == false)
+			{
+				$('.porto_seguro_requisitos_empresario').addClass('nover');
+			}
+			if ($('#seguro').val() != 'SURA' && $('#seguro').val() != 'BHU' && $('#estado_laboral').val() != 'Trabajador y profesional independiente')
+			{ 
+				if ($(".adjunto_ingresos").hasClass('nover') == false)
+				{
+					$('.adjunto_ingresos').addClass('nover');
+				}
+			}
+			if ($('#seguro').val() != 'SURA' && $('#estado_laboral').val() != 'Trabajador y profesional independiente')
+			{ 
+				if ($(".adjunto_declaracion_dgi").hasClass('nover') == false)
+				{
+					$('.adjunto_declaracion_dgi').addClass('nover');
+				}
+			}			
+		}
+
+		if ($('#seguro').val() == 'SURA' && $('#estado_laboral').val() == 'Jubilado pensionista')
+		{
+			if ($(".adjunto_caja").hasClass('nover') == true)
+			{
+				$(".adjunto_caja").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($('#seguro').val() != 'Porto Seguro')
+			{ 
+				if ($(".adjunto_caja").hasClass('nover') == false)
+				{
+					$('.adjunto_caja').addClass('nover');
+				}
+			}		
+		}
+
+		if ($('#seguro').val() == 'SURA' && $('#estado_laboral').val() == 'Trabajador y profesional independiente')
+		{
+			if ($(".sura_requisitos_trabajador_y_profesional_independiente").hasClass('nover') == true)
+			{
+				$(".sura_requisitos_trabajador_y_profesional_independiente").removeClass('nover');
+			}
+			if ($(".adjunto_ingresos").hasClass('nover') == true)
+			{
+				$(".adjunto_ingresos").removeClass('nover');
+			}
+			if ($(".adjunto_declaracion_dgi").hasClass('nover') == true)
+			{
+				$(".adjunto_declaracion_dgi").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($(".sura_requisitos_trabajador_y_profesional_independiente").hasClass('nover') == false)
+			{
+				$('.sura_requisitos_trabajador_y_profesional_independiente').addClass('nover');
+			}
+			if ($('#seguro').val() != 'Porto Seguro' && $('#seguro').val() != 'BHU' && $('#estado_laboral').val() != 'Empresario')
+			{ 
+				if ($(".adjunto_ingresos").hasClass('nover') == false)
+				{
+					$('.adjunto_ingresos').addClass('nover');
+				}
+			}
+			if ($('#seguro').val() != 'Porto Seguro' && $('#estado_laboral').val() != 'Empresario')
+			{ 
+				if ($(".adjunto_declaracion_dgi").hasClass('nover') == false)
+				{
+					$('.adjunto_declaracion_dgi').addClass('nover');
+				}
+			}			
+		}
+
+		if ($('#seguro').val() == 'SURA' && $('#estado_laboral').val() == 'Empresario')
+		{
+			if ($(".sura_requisitos_empresario").hasClass('nover') == true)
+			{
+				$(".sura_requisitos_empresario").removeClass('nover');
+			}
+			if ($(".adjunto_ingresos").hasClass('nover') == true)
+			{
+				$(".adjunto_ingresos").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($(".sura_requisitos_empresario").hasClass('nover') == false)
+			{
+				$('.sura_requisitos_empresario').addClass('nover');
+			}
+			if ($('#seguro').val() != 'Porto Seguro' && $('#seguro').val() != 'BHU' && $('#estado_laboral').val() != 'Trabajador y profesional independiente')
+			{ 
+				if ($(".adjunto_ingresos").hasClass('nover') == false)
+				{
+					$('.adjunto_ingresos').addClass('nover');
+				}
+			}			
+		}
+
+		if ($('#seguro').val() == 'BHU' && $('#estado_laboral').val() == 'Trabajador y profesional independiente')
+		{
+			if ($(".adjunto_ingresos").hasClass('nover') == true)
+			{
+				$(".adjunto_ingresos").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($('#seguro').val() != 'Porto Seguro' && $('#seguro').val() != 'SURA' && $('#estado_laboral').val() != 'Empresario')
+			{ 
+				if ($(".adjunto_ingresos").hasClass('nover') == false)
+				{
+					$('.adjunto_ingresos').addClass('nover');
+				}
+			}		
+		}
+
+		if ($('#seguro').val() == 'BHU' && $('#estado_laboral').val() == 'Empresario')
+		{
+			if ($(".adjunto_ingresos").hasClass('nover') == true)
+			{
+				$(".adjunto_ingresos").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($('#seguro').val() != 'Porto Seguro' && $('#seguro').val() != 'SURA' && $('#estado_laboral').val() != 'Trabajador y profesional independiente')
+			{ 
+				if ($(".adjunto_ingresos").hasClass('nover') == false)
+				{
+					$('.adjunto_ingresos').addClass('nover');
+				}
+			}		
+		}
+
 	});
 
 	$('#estado_laboral').change(function(e) 
 	{
 		e.preventDefault();
+		if ($('#seguro').val() == 'Porto Seguro' && $('#estado_laboral').val() == 'Trabajador dependiente')
+		{
+			if ($(".porto_seguro_requisitos_trabajador_dependiente").hasClass('nover') == true)
+			{
+				$(".porto_seguro_requisitos_trabajador_dependiente").removeClass('nover');
+			}
+			if ($(".adjunto_sueldos").hasClass('nover') == true)
+			{
+				$(".adjunto_sueldos").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($(".porto_seguro_requisitos_trabajador_dependiente").hasClass('nover') == false)
+			{
+				$('.porto_seguro_requisitos_trabajador_dependiente').addClass('nover');
+			}
+			if ($(".adjunto_sueldos").hasClass('nover') == false)
+			{
+				$('.adjunto_sueldos').addClass('nover');
+			}		
+		}
 
-		mostrar_campos_formulario();
+		if ($('#seguro').val() == 'Porto Seguro' && $('#estado_laboral').val() == 'Jubilado pensionista')
+		{
+			if ($(".porto_seguro_requisitos_jubilado_pensionista").hasClass('nover') == true)
+			{
+				$(".porto_seguro_requisitos_jubilado_pensionista").removeClass('nover');
+			}
+			if ($(".adjunto_caja").hasClass('nover') == true)
+			{
+				$(".adjunto_caja").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($(".porto_seguro_requisitos_jubilado_pensionista").hasClass('nover') == false)
+			{
+				$('.porto_seguro_requisitos_jubilado_pensionista').addClass('nover');
+			}
+			if ($('#seguro').val() != 'SURA')
+			{ 
+				if ($(".adjunto_caja").hasClass('nover') == false)
+				{
+					$('.adjunto_caja').addClass('nover');
+				}
+			}			
+		}
+
+		if ($('#seguro').val() == 'Porto Seguro' && $('#estado_laboral').val() == 'Trabajador y profesional independiente')
+		{
+			if ($(".porto_seguro_requisitos_trabajador_y_profesional_independiente").hasClass('nover') == true)
+			{
+				$(".porto_seguro_requisitos_trabajador_y_profesional_independiente").removeClass('nover');
+			}
+			if ($(".adjunto_ingresos").hasClass('nover') == true)
+			{
+				$(".adjunto_ingresos").removeClass('nover');
+			}
+			if ($(".adjunto_declaracion_dgi").hasClass('nover') == true)
+			{
+				$(".adjunto_declaracion_dgi").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($(".porto_seguro_requisitos_trabajador_y_profesional_independiente").hasClass('nover') == false)
+			{
+				$('.porto_seguro_requisitos_trabajador_y_profesional_independiente').addClass('nover');
+			}
+			if ($('#seguro').val() != 'SURA' && $('#seguro').val() != 'BHU' && $('#estado_laboral').val() != 'Empresario')
+			{ 
+				if ($(".adjunto_ingresos").hasClass('nover') == false)
+				{
+					$('.adjunto_ingresos').addClass('nover');
+				}
+			}
+			if ($('#seguro').val() != 'SURA' && $('#estado_laboral').val() != 'Empresario')
+			{ 
+				if ($(".adjunto_declaracion_dgi").hasClass('nover') == false)
+				{
+					$('.adjunto_declaracion_dgi').addClass('nover');
+				}
+			}		
+		}
+
+		if ($('#seguro').val() == 'Porto Seguro' && $('#estado_laboral').val() == 'Empresario')
+		{
+			if ($(".porto_seguro_requisitos_empresario").hasClass('nover') == true)
+			{
+				$(".porto_seguro_requisitos_empresario").removeClass('nover');
+			}
+			if ($(".adjunto_ingresos").hasClass('nover') == true)
+			{
+				$(".adjunto_ingresos").removeClass('nover');
+			}
+			if ($(".adjunto_declaracion_dgi").hasClass('nover') == true)
+			{
+				$(".adjunto_declaracion_dgi").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($(".porto_seguro_requisitos_empresario").hasClass('nover') == false)
+			{
+				$('.porto_seguro_requisitos_empresario').addClass('nover');
+			}
+			if ($('#seguro').val() != 'SURA' && $('#seguro').val() != 'BHU' && $('#estado_laboral').val() != 'Trabajador y profesional independiente')
+			{ 
+				if ($(".adjunto_ingresos").hasClass('nover') == false)
+				{
+					$('.adjunto_ingresos').addClass('nover');
+				}
+			}
+			if ($('#seguro').val() != 'SURA' && $('#estado_laboral').val() != 'Trabajador y profesional independiente')
+			{ 
+				if ($(".adjunto_declaracion_dgi").hasClass('nover') == false)
+				{
+					$('.adjunto_declaracion_dgi').addClass('nover');
+				}
+			}			
+		}
+
+		if ($('#seguro').val() == 'SURA' && $('#estado_laboral').val() == 'Jubilado pensionista')
+		{
+			if ($(".adjunto_caja").hasClass('nover') == true)
+			{
+				$(".adjunto_caja").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($('#seguro').val() != 'Porto Seguro')
+			{ 
+				if ($(".adjunto_caja").hasClass('nover') == false)
+				{
+					$('.adjunto_caja').addClass('nover');
+				}
+			}		
+		}
+
+		if ($('#seguro').val() == 'SURA' && $('#estado_laboral').val() == 'Trabajador y profesional independiente')
+		{
+			if ($(".sura_requisitos_trabajador_y_profesional_independiente").hasClass('nover') == true)
+			{
+				$(".sura_requisitos_trabajador_y_profesional_independiente").removeClass('nover');
+			}
+			if ($(".adjunto_ingresos").hasClass('nover') == true)
+			{
+				$(".adjunto_ingresos").removeClass('nover');
+			}
+			if ($(".adjunto_declaracion_dgi").hasClass('nover') == true)
+			{
+				$(".adjunto_declaracion_dgi").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($(".sura_requisitos_trabajador_y_profesional_independiente").hasClass('nover') == false)
+			{
+				$('.sura_requisitos_trabajador_y_profesional_independiente').addClass('nover');
+			}
+			if ($('#seguro').val() != 'Porto Seguro' && $('#seguro').val() != 'BHU' && $('#estado_laboral').val() != 'Empresario')
+			{ 
+				if ($(".adjunto_ingresos").hasClass('nover') == false)
+				{
+					$('.adjunto_ingresos').addClass('nover');
+				}
+			}
+			if ($('#seguro').val() != 'Porto Seguro' && $('#estado_laboral').val() != 'Empresario')
+			{ 
+				if ($(".adjunto_declaracion_dgi").hasClass('nover') == false)
+				{
+					$('.adjunto_declaracion_dgi').addClass('nover');
+				}
+			}			
+		}
+
+		if ($('#seguro').val() == 'SURA' && $('#estado_laboral').val() == 'Empresario')
+		{
+			if ($(".sura_requisitos_empresario").hasClass('nover') == true)
+			{
+				$(".sura_requisitos_empresario").removeClass('nover');
+			}
+			if ($(".adjunto_ingresos").hasClass('nover') == true)
+			{
+				$(".adjunto_ingresos").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($(".sura_requisitos_empresario").hasClass('nover') == false)
+			{
+				$('.sura_requisitos_empresario').addClass('nover');
+			}
+			if ($('#seguro').val() != 'Porto Seguro' && $('#seguro').val() != 'BHU' && $('#estado_laboral').val() != 'Trabajador y profesional independiente')
+			{ 
+				if ($(".adjunto_ingresos").hasClass('nover') == false)
+				{
+					$('.adjunto_ingresos').addClass('nover');
+				}
+			}			
+		}
+
+		if ($('#seguro').val() == 'BHU' && $('#estado_laboral').val() == 'Trabajador y profesional independiente')
+		{
+			if ($(".adjunto_ingresos").hasClass('nover') == true)
+			{
+				$(".adjunto_ingresos").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($('#seguro').val() != 'Porto Seguro' && $('#seguro').val() != 'SURA' && $('#estado_laboral').val() != 'Empresario')
+			{ 
+				if ($(".adjunto_ingresos").hasClass('nover') == false)
+				{
+					$('.adjunto_ingresos').addClass('nover');
+				}
+			}		
+		}
+
+		if ($('#seguro').val() == 'BHU' && $('#estado_laboral').val() == 'Empresario')
+		{
+			if ($(".adjunto_ingresos").hasClass('nover') == true)
+			{
+				$(".adjunto_ingresos").removeClass('nover');
+			}
+		}
+		else
+		{
+			if ($('#seguro').val() != 'Porto Seguro' && $('#seguro').val() != 'SURA' && $('#estado_laboral').val() != 'Trabajador y profesional independiente')
+			{ 
+				if ($(".adjunto_ingresos").hasClass('nover') == false)
+				{
+					$('.adjunto_ingresos').addClass('nover');
+				}
+			}		
+		}
+
 	});
 
 });

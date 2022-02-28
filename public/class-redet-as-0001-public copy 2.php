@@ -119,7 +119,7 @@ class Redet_As_0001_Public {
 			'confirm_btn_text' => esc_html__('Confirm', 'houzez-crm'),
 			'verify_nonce' => wp_create_nonce('verify_gallery_nonce'),
 			'verify_file_type' => esc_html__('Valid file formats', 'houzez'),
-			'attachment_max_file_size' => '20000kb',
+			'attachment_max_file_size' => houzez_option('attachment_max_file_size', '12000kb'),
 			'max_prop_attachments' => 10
 		);
 		wp_localize_script( $this->redet_as_0001, 'Houzez_crm_vars_redet_as', $locals_redet_as ); 
@@ -1548,42 +1548,24 @@ class Redet_As_0001_Public {
 		if(isset($_POST['garantia_id']) && !empty($_POST['garantia_id'])) 
 		{
 			$garantia_id = intval($_POST['garantia_id']);
-			$update_garantia = $this->update_garantia($garantia_id);
+			$garantia_id = $this->update_garantia($garantia_id);
 
-			if ($update_garantia)
-			{
-				echo json_encode( array(
-					'success' => true,
-					'msg' => 'Garantía actualizada satisfactoriamente'
-				));
-			}
-			else
-			{
-				echo json_encode( array(
-					'success' => false,
-					'msg' => 'Error al actualizar la garantía'
-				));
-			}
+			echo json_encode( array(
+				'success' => true,
+				'msg' => esc_html__("Successfully updated!", 'houzez-crm')
+			));
+			wp_die();
+
 		} 
 		else 
 		{		
 			$save_garantia = $this->save_garantia();
 			if ($save_garantia) 
 			{
-				echo json_encode( array( 
-					'success' => true, 
-					'msg' => 'Garantía creada satisfactoriamente'
-				));
-			}
-			else
-			{
-				echo json_encode( array(
-					'success' => false,
-					'msg' => 'Error al crear la garantía'
-				));				
+				echo json_encode( array( 'success' => true, 'msg' => esc_html__('Successfully added!', 'houzez-crm') ) );
+					wp_die();
 			}
 		}
-		wp_die();
 	}
 
 	public function update_garantia($garantia_id) {
@@ -1701,9 +1683,9 @@ class Redet_As_0001_Public {
 			'%d'
 		);
 
-		$update_garantia = $wpdb->update( $data_table, $data, $where, $format, $where_format );
+		$updated = $wpdb->update( $data_table, $data, $where, $format, $where_format );
 
-		if ( $update_garantia === false ) 
+		if ( false === $updated ) 
 		{
 			return false;
 		} 
@@ -1869,42 +1851,35 @@ class Redet_As_0001_Public {
 			'%s'
 		);
 
-		$save_garantia = $wpdb->insert($data_table, $data, $format);
+		$wpdb->insert($data_table, $data, $format);
+		$inserted_id = $wpdb->insert_id;
 
-		if ( $save_garantia === false) 
+		$this->agregar_adjuntos($inserted_id);
+		
+		$usuarios = get_users();
+		foreach ($usuarios as $usuario) 
 		{
-			return false;
-		} 
-		else
-		{
-			$inserted_id = $wpdb->insert_id;
-
-			$this->agregar_adjuntos($inserted_id);
-			
-			$usuarios = get_users();
-			foreach ($usuarios as $usuario) 
+			if (isset($usuario->caps['administrator']))
 			{
-				if (isset($usuario->caps['administrator']))
+				if ($usuario->caps['administrator'] == true)
 				{
-					if ($usuario->caps['administrator'] == true)
-					{
-						$url_garantia = site_url( '/mi-panel/?hpage=garantias&garantia='.$inserted_id);
-						$usuario_actual = wp_get_current_user();
-						$notificacion = 
-							'<p>Estimado usuario usted tiene una nueva garantía pendiente de revisión:</p>'.
-							'<p><strong>Id de la garantía: </strong>'.$inserted_id.'</p>'.
-							'<p><strong>Usuario del agente: </strong>'.$usuario_actual->user_email.'</p>'.
-							'<p><strong>Nombre del agente: </strong>'.$usuario_actual->user_firstname.' '.$usuario_actual->user_lastname.'</p>'.
-							'<p><a href="'.$url_garantia.'"><strong>Ver garantía</strong></a></p>'; 
-						$encabezados = array('Content-Type: text/html; charset=UTF-8');
-						wp_mail($usuario->data->user_email, "Nueva garantía para revisión (Id ".$inserted_id.')', $notificacion, $encabezados);
+					$url_garantia = site_url( '/mi-panel/?hpage=garantias&garantia='.$inserted_id);
+					$usuario_actual = wp_get_current_user();
+					$notificacion = 
+						'<p>Estimado usuario usted tiene una nueva garantía pendiente de revisión:</p>'.
+						'<p><strong>Id de la garantía: </strong>'.$inserted_id.'</p>'.
+						'<p><strong>Usuario del agente: </strong>'.$usuario_actual->user_email.'</p>'.
+						'<p><strong>Nombre del agente: </strong>'.$usuario_actual->user_firstname.' '.$usuario_actual->user_lastname.'</p>'.
+						'<p><a href="'.$url_garantia.'"><strong>Ver garantía</strong></a></p>'; 
+					$encabezados = array('Content-Type: text/html; charset=UTF-8');
+					wp_mail($usuario->data->user_email, "Nueva garantía para revisión (Id ".$inserted_id.')', $notificacion, $encabezados);
 
-						$this->crear_actividad_garantia($usuario->ID, $notificacion);
-					}
+					$this->crear_actividad_garantia($usuario->ID, $notificacion);
 				}
 			}
-			return $inserted_id;
 		}
+
+		return $inserted_id;
 	}
 	public function get_single_garantia() {
 		global $wpdb;
@@ -2487,42 +2462,24 @@ class Redet_As_0001_Public {
 		if(isset($_POST['informe_id']) && !empty($_POST['informe_id'])) 
 		{
 			$informe_id = intval($_POST['informe_id']);
-			$update_informe = $this->update_informe($informe_id);
+			$informe_id = $this->update_informe($informe_id);
 
-			if ($update_informe)
-			{
-				echo json_encode( array(
-					'success' => true,
-					'msg' => 'Solicitud de informe fue actualizada satisfactoriamente'
-				));
-			}
-			else
-			{
-				echo json_encode( array(
-					'success' => false,
-					'msg' => 'La solicitud de informe no pudo ser actualizada'
-				));
-			}
+			echo json_encode( array(
+				'success' => true,
+				'msg' => esc_html__("Successfully updated!", 'houzez-crm')
+			));
+			wp_die();
+
 		} 
 		else 
 		{		
 			$save_informe = $this->save_informe();
 			if ($save_informe) 
 			{
-				echo json_encode( array( 
-					'success' => true,
-					'msg' => 'La solicitud de informe se creó satisfactoriamente' 
-				) );
-			}
-			else
-			{
-				echo json_encode( array(
-					'success' => false,
-					'msg' => 'La solicitud de informe no pudo ser creada'
-				));
+				echo json_encode( array( 'success' => true, 'msg' => esc_html__('Successfully added!', 'houzez-crm') ) );
+					wp_die();
 			}
 		}
-		wp_die();
 	}
 
 	public function update_informe($informe_id) {
@@ -2761,9 +2718,9 @@ class Redet_As_0001_Public {
 			'%d'
 		);
 
-		$update_informe = $wpdb->update( $data_table, $data, $where, $format, $where_format );
+		$updated = $wpdb->update( $data_table, $data, $where, $format, $where_format );
 
-		if ( $update_informe === false ) 
+		if ( false === $updated ) 
 		{
 			return false;
 		} 
@@ -3054,43 +3011,35 @@ class Redet_As_0001_Public {
 			'%s'
 		);
 
-		$save_informe = $wpdb->insert($data_table, $data, $format);
+		$wpdb->insert($data_table, $data, $format);
+		$inserted_id = $wpdb->insert_id;
 
-		if ($save_informe === false)
+		$this->agregar_adjuntos_informe($inserted_id);
+		
+		$usuarios = get_users();
+		foreach ($usuarios as $usuario) 
 		{
-			return false;
-		}
-		else
-		{
-			$inserted_id = $wpdb->insert_id;
-
-			$this->agregar_adjuntos_informe($inserted_id);
-			
-			$usuarios = get_users();
-			foreach ($usuarios as $usuario) 
+			if (isset($usuario->caps['administrator']))
 			{
-				if (isset($usuario->caps['administrator']))
+				if ($usuario->caps['administrator'] == true)
 				{
-					if ($usuario->caps['administrator'] == true)
-					{
-						$url_informe = site_url( '/mi-panel/?hpage=informes&informe='.$inserted_id);
-						$usuario_actual = wp_get_current_user();
-						$notificacion = 
-							'<p>Estimado usuario usted tiene una nueva solicitud de informe pendiente de revisión:</p>'.
-							'<p><strong>Id del informe: </strong>'.$inserted_id.'</p>'.
-							'<p><strong>Usuario del agente: </strong>'.$usuario_actual->user_email.'</p>'.
-							'<p><strong>Nombre del agente: </strong>'.$usuario_actual->user_firstname.' '.$usuario_actual->user_lastname.'</p>'.
-							'<p><a href="'.$url_informe.'"><strong>Ver solicitud de informe</strong></a></p>'; 
-						$encabezados = array('Content-Type: text/html; charset=UTF-8');
-						wp_mail($usuario->data->user_email, "Nueva solicitud de informe para revisión (Id ".$inserted_id.')', $notificacion, $encabezados);
+					$url_informe = site_url( '/mi-panel/?hpage=informes&informe='.$inserted_id);
+					$usuario_actual = wp_get_current_user();
+					$notificacion = 
+						'<p>Estimado usuario usted tiene una nueva solicitud de informe pendiente de revisión:</p>'.
+						'<p><strong>Id del informe: </strong>'.$inserted_id.'</p>'.
+						'<p><strong>Usuario del agente: </strong>'.$usuario_actual->user_email.'</p>'.
+						'<p><strong>Nombre del agente: </strong>'.$usuario_actual->user_firstname.' '.$usuario_actual->user_lastname.'</p>'.
+						'<p><a href="'.$url_informe.'"><strong>Ver solicitud de informe</strong></a></p>'; 
+					$encabezados = array('Content-Type: text/html; charset=UTF-8');
+					wp_mail($usuario->data->user_email, "Nueva solicitud de informe para revisión (Id ".$inserted_id.')', $notificacion, $encabezados);
 
-						$this->crear_actividad_informe($usuario->ID, $notificacion);
-					}
+					$this->crear_actividad_informe($usuario->ID, $notificacion);
 				}
 			}
-
-			return $inserted_id;
 		}
+
+		return $inserted_id;
 	}
 	public function get_single_informe() {
 		global $wpdb;
